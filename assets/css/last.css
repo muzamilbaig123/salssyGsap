@@ -1,0 +1,237 @@
+
+#obj3d{
+    width: 100%;
+    border: 2px solid yellow;
+}
+
+.obj3d-container {
+margin: 0;
+display: flex;
+justify-content: center;
+align-items: center;
+/* min-height: 100vh; */
+background-color: black;
+flex-direction: column;
+}
+
+
+.discobal {
+position: relative;
+width: 300px;
+height: 300px;
+perspective: 1000px;
+perspective-origin: center center;
+transform-origin: 50% 50%;
+}
+
+.disco-wrap {
+position: absolute;
+top: 0;
+left: 0; 
+display: block;
+transform-style: preserve-3d;
+width: 300px;
+height: 300px;
+animation: turn 16s infinite linear;
+border-radius: 50%;
+}
+
+.disco-wrap:hover{
+animation-play-state:paused;
+}
+
+.disco-wrap div {
+position: absolute;
+display: block;
+border-radius: 50%;
+text-align: center;
+line-height: 100%;
+background-image: radial-gradient(
+rgba(255, 0, 255, 0.3),
+rgba(255, 0, 255, 0.3)35%,
+rgba(255, 255, 255, 0.3) 35%,
+rgba(255, 0, 255, 0.3) 55%,
+rgba(255, 255, 255, 0.3)55%,
+rgba(255,0, 255, 0.3)
+
+);
+}
+
+.disco-wrap div:nth-child(1) {
+display: none;
+transform: rotateY(90deg) translateZ(150px);
+width: 100px;
+height: 100px;
+top:100px;
+left: 100px;
+}
+.disco-wrap div:nth-child(2) {
+transform: rotateY(90deg) translateZ(113.5px);
+width: 200px;
+height: 200px;
+top: 50px;
+left: 50px;
+}
+.disco-wrap div:nth-child(3) {
+transform: rotateY(90deg) translateZ(75px);
+width: 260px;
+height: 260px;
+top: 20px;
+left: 20px;
+}
+.disco-wrap div:nth-child(4) {
+transform: rotateY(90deg) translateZ(0);
+width: 300px;
+height: 300px;
+top: 0;
+left: 0;
+}
+.disco-wrap div:nth-child(5) {
+transform: rotateY(90deg) translateZ(-75px);
+width: 260px;
+height: 260px;
+top: 20px;
+left: 20px;
+}
+.disco-wrap div:nth-child(6) {
+transform: rotateY(90deg) translateZ(-113.5px);
+width: 200px;
+height: 200px;
+top: 50px;
+left: 50px;
+}
+.disco-wrap div:nth-child(7) {
+display: none;
+transform: rotateY(90deg) translateZ(-150px);
+width: 100px;
+height: 100px;
+top: 100px;
+left: 100px;
+}
+.disco-wrap div:nth-of-type(8) {
+display: none;
+transform: translateZ(150px);
+width: 100px;
+height: 100px;
+top: 100px;
+left: 100px;
+}
+.disco-wrap div:nth-of-type(9) {
+transform: translateZ(113.5px);
+width: 200px;
+height: 200px;
+top: 50px;
+left: 50px;
+}
+.disco-wrap div:nth-of-type(10) {
+transform: translateZ(75px);
+width: 260px;
+height: 260px;
+top: 20px;
+left: 20px;
+}
+.disco-wrap div:nth-of-type(11) {
+transform: translateZ(0);
+width: 300px;
+height: 300px;
+top: 0;
+left: 0;
+}
+.disco-wrap div:nth-of-type(12) {
+transform: translateZ(-75px);
+width: 260px;
+height: 260px;
+top: 20px;
+left: 20px;
+}
+.disco-wrap div:nth-of-type(13) {
+transform: translateZ(-113.5px);
+width: 200px;
+height: 200px;
+top: 50px;
+left: 50px;
+}
+.disco-wrap div:nth-of-type(14) {
+display: none;
+transform: translateZ(-150px);
+width: 100px;
+height: 100px;
+top: 100px;
+left: 100px;
+}
+
+@keyframes turn {
+from {
+transform: rotateY(0deg);
+}
+to {
+transform: rotateY(360deg);
+}
+}
+
+
+/* 3d object one complete */
+  
+.sticky-section {
+    height: 400vh; /* 4 times the viewport height for 4 sections */
+    position: relative;
+    width: 60%;
+}
+
+.sticky-container {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+}
+
+.columns-wrapper {
+    display: flex;
+    height: 100%;
+    width: 400%; /* 4 times the container width */
+    position: relative;
+}
+
+.column {
+    width: 25%; /* Each column takes 1/4 of the wrapper */
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+    text-align: center;
+}
+
+.column h2 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+.column p {
+    font-size: 1.5rem;
+    max-width: 600px;
+    line-height: 1.6;
+}
+
+/* Column colors */
+.column:nth-child(1) {
+    background-color: #3498db;
+    color: white;
+}
+
+.column:nth-child(2) {
+    background-color: #e74c3c;
+    color: white;
+}
+
+.column:nth-child(3) {
+    background-color: #2ecc71;
+    color: white;
+}
+
+.column:nth-child(4) {
+    background-color: #f39c12;
+    color: white;
+}

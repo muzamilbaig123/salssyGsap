@@ -84,76 +84,107 @@
         </div>
     </div>
 
-    <section class="spacing"></section>
+    <!-- <section class="spacing"></section> -->
+
+    <!-- 3d object -->
+    <section id="obj3d">
+        <div class="obj3d-container">
+
+            <!-- one -->
+            <div class="discobal">
+                <div class="disco-wrap">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+            </div>
+            <!-- two -->
+                <h1>asas</h1>        
+        </div>
+    </section>
+    
+
 
     <?php include 'inc/scripts.php'; ?>
     <script>
-        const spline = document.getElementById("mySpline");
+    const spline = document.getElementById("mySpline");
 
-        window.addEventListener("mousemove", (event) => {
-            const x = (event.clientX / window.innerWidth) * 2 - 1;
-            const y = (event.clientY / window.innerHeight) * 2 - 1;
+    window.addEventListener("mousemove", (event) => {
+        const x = (event.clientX / window.innerWidth) * 2 - 1;
+        const y = (event.clientY / window.innerHeight) * 2 - 1;
 
-            spline.setAttribute("rotation", `${y * 10}, ${x * 10}, 0`);
-        });
+        spline.setAttribute("rotation", `${y * 10}, ${x * 10}, 0`);
+    });
 
-        const root = document.documentElement;
+    const root = document.documentElement;
 
-        const marqueeElementsDisplayed = getComputedStyle(root).getPropertyValue("--marquee-elements-displayed");
-        const marqueeContent = document.querySelector("ul.marquee-content");
+    const marqueeElementsDisplayed = getComputedStyle(root).getPropertyValue("--marquee-elements-displayed");
+    const marqueeContent = document.querySelector("ul.marquee-content");
 
-        root.style.setProperty("--marquee-elements", marqueeContent.children.length);
+    root.style.setProperty("--marquee-elements", marqueeContent.children.length);
 
-        for (let i = 0; i < marqueeElementsDisplayed; i++) {
-            marqueeContent.appendChild(marqueeContent.children[i].cloneNode(true));
+    for (let i = 0; i < marqueeElementsDisplayed; i++) {
+        marqueeContent.appendChild(marqueeContent.children[i].cloneNode(true));
+    }
+
+    // Gsap
+
+    gsap.registerPlugin(ScrollTrigger);
+
+    // Timeline for dashboard steps
+    const tl = gsap.timeline({
+        scrollTrigger: {
+            trigger: ".dashboard-steps",
+            pin: true,
+            pinSpacing: true,
+            scrub: 0.7,
+            start: "top top",
+            end: "+=300%",
+            markers: true
         }
+    });
 
-        // Gsap
+    const boxes = gsap.utils.toArray(".dashboard-step");
 
-        gsap.registerPlugin(ScrollTrigger);
+    boxes.forEach((box, i) => {
+        tl.from(
+            box, {
+                opacity: 0,
+                xPercent: -50, // Cards will slide more visibly
+                ease: "power3.out", // Smoother easing
+                duration: 1
+            },
+            i * 0.5 // Staggering effect for slide-in
+        );
+    });
 
-        // Timeline for dashboard steps
-        const tl = gsap.timeline({
-            scrollTrigger: {
-                trigger: ".dashboard-steps",
-                pin: true,
-                pinSpacing: true,
-                scrub: 0.7,
-                start: "top top",
-                end: "+=300%",
-                markers: true
-            }
-        });
-
-        const boxes = gsap.utils.toArray(".dashboard-step");
-
-        boxes.forEach((box, i) => {
-            tl.from(
-                box,
-                {
-                    opacity: 0,
-                    xPercent: -50,  // Cards will slide more visibly
-                    ease: "power3.out",  // Smoother easing
-                    duration: 1
-                },
-                i * 0.5  // Staggering effect for slide-in
-            );
-        });
-
-        // Animation for icons appearing at the top
-        gsap.to(".icon-list", {
-            yPercent: -100,  // Move icons fully upwards
-            opacity: 1,
-            stagger: 0.5,  // Icons will animate one by one
-            ease: "power2.out",
-            scrollTrigger: {
-                trigger: ".dashboard-steps",
-                start: "top 10%",
-                end: "bottom top",
-                scrub: 1,
-                markers: true
-            }
-        });
+    // Animation for icons appearing at the top
+    gsap.to(".icon-list", {
+        yPercent: -100, // Move icons fully upwards
+        opacity: 1,
+        stagger: 0.5, // Icons will animate one by one
+        ease: "power2.out",
+        scrollTrigger: {
+            trigger: ".dashboard-steps",
+            start: "top 10%",
+            end: "bottom top",
+            scrub: 1,
+            markers: true
+        }
+    });
 
 
 
@@ -162,29 +193,23 @@
 
 
 
-        // const cards = document.querySelectorAll(".dashboard-step");
+    // const cards = document.querySelectorAll(".dashboard-step");
 
-        // gsap.to(".dashboard-step:not(:last-child)", {
-        //     x: "-150%",
-        //     stagger: 1,
-        //     ease: "none",
-        //     scrollTrigger: {
-        //         trigger: ".dashboard-steps",
-        //         pin: true,
-        //         scrub: 0.35,
-        //         start: "top top",
-        //         end: "+=" + (cards.length - 1) * 50 + "%",
-        //         markers: true
-        //     }
-        // });
+    // gsap.to(".dashboard-step:not(:last-child)", {
+    //     x: "-150%",
+    //     stagger: 1,
+    //     ease: "none",
+    //     scrollTrigger: {
+    //         trigger: ".dashboard-steps",
+    //         pin: true,
+    //         scrub: 0.35,
+    //         start: "top top",
+    //         end: "+=" + (cards.length - 1) * 50 + "%",
+    //         markers: true
+    //     }
+    // });
 
-
-
-
-
-
-
-
+    
 
 
     </script>
