@@ -214,10 +214,10 @@
             </div>
         </div>
         <div class="one-message">
-            <div class="box">
+            <div class="box" style="overflow: hidden; z-index: -99999;">
                 <h2>Definitely, Jack! Just pick a time that suits you in my calendar here: <br /> <a href="https://calendly.com/salssy-linkedin/discovery">https://calendly.com/salssy-linkedin/discovery</a> <br /> Also, I'll get you set up with our beta program – you're going to love what Salssy can do!</h2>
-                <div class="boximg">
-                    <img src="assets/images/mesagepict.png" alt="meesage picter" />
+                <div class="boximg" >
+                    <img src="assets/images/mesagepict.png" alt="meesage picter" style="z-index: -9999;" />
                 </div>
             </div>
         </div>
